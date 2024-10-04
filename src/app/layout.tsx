@@ -1,6 +1,8 @@
-import '@/app/globals.css'
+import '@/styles/globals.css'
+import '@solana/wallet-adapter-react-ui/styles.css'
 import { Inter } from 'next/font/google'
 import Layout from '@/components/Layout'
+import Providers from '@/components/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Layout>{children}</Layout>
+        <Providers>
+          <Layout>{children}</Layout>
+        </Providers>
       </body>
     </html>
   )
