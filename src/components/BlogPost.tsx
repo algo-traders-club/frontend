@@ -16,25 +16,25 @@ export default function BlogPost({ content, frontMatter }: BlogPostProps) {
       <h1>{frontMatter.title}</h1>
       <p className="text-muted-foreground">{frontMatter.date}</p>
       <ReactMarkdown
-        components={{
-          code({ node, inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || '')
-            return !inline && match ? (
-              <SyntaxHighlighter
-                style={tomorrow}
-                language={match[1]}
-                PreTag="div"
-                {...props}
-              >
-                {String(children).replace(/\n$/, '')}
-              </SyntaxHighlighter>
-            ) : (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            )
-          }
-        }}
+        // components={{
+        //   code({ node, inline, className, children, ...props }) {
+        //     const match = /language-(\w+)/.exec(className || '')
+        //     return !inline && match ? (
+        //       <SyntaxHighlighter
+        //         style={tomorrow}
+        //         language={match[1]}
+        //         PreTag="div"
+        //         {...props}
+        //       >
+        //         {String(children).replace(/\n$/, '')}
+        //       </SyntaxHighlighter>
+        //     ) : (
+        //       <code className={className} {...props}>
+        //         {children}
+        //       </code>
+        //     )
+        //   }
+        // }}
       >
         {content}
       </ReactMarkdown>
